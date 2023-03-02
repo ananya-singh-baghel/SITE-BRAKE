@@ -1,0 +1,22 @@
+The basic functioning of this website is to display the message typed in the “your message” textbox and also display the image
+from URL of any legit image address written in the “message image” box.
+
+Now to perform XSS, we try to insert a <script> tag in the “your message” box.
+
+The browser identifies the <script> tag and blocks it from getting executed, hence the tag gets printed as it is on the screen.
+
+Now to find a loophole in this website for our <script> to work we inspect the code and found the HTML <image> tag.
+
+To insert an image:
+<img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600">
+
+This is how the html image tag works.
+Now what we’ll do is put an image URL in the “message images” section and then close the sentence with 
+an colon (“), which will made browser think that the src part of the <img> tag is done and closed, hence 
+it’ll start executing whatever command we type after it. Even if the commands functioning is something which 
+is not the expected outcome of the website when the developers made it.
+
+As we can see in the output screen the script ran inside the “message image” box and generated an alert message.
+THIS MESSAGE WAS COMPLETELY OUT OF CHARACTER FOR OUR WEBSITE AS IT ISN’T SUPPOSED TO DO ANYTHING OTHER THAN SHOWING 
+THE MESSAGE AND IT’S IMAGE.
+
