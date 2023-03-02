@@ -5,6 +5,7 @@ const userMessagesList = document.querySelector('ul');
 
 
 function renderMessages() {
+  
   let messageItems = '';
   for (const message of userMessages) {
     messageItems = `
@@ -25,6 +26,7 @@ function renderMessages() {
 
 
 function formSubmitHandler(event) {
+  
   event.preventDefault();
   const userMessageInput = event.target.querySelector('textarea');
   const messageImageInput = event.target.querySelector('input');
@@ -32,6 +34,7 @@ function formSubmitHandler(event) {
   const imageUrl = messageImageInput.value;
 
   if (
+    
     !userMessage ||
     !imageUrl ||
     userMessage.trim().length === 0 ||
@@ -42,8 +45,10 @@ function formSubmitHandler(event) {
   }
 
   userMessages.push({
+    
     text: userMessage,
     image: imageUrl,
+    
   });
 
   userMessageInput.value = '';
